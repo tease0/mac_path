@@ -7,10 +7,17 @@ PS1='\[\033[36m\]\u\[\033[0m\]\[\033[32m\]\w\[\033[0m\]:\[\033[35m\]$(git_branch
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+
 #カラー
 export CLICOLOR=1
 alias c='pygmentize -O style=solarizedlight -f terminal256 -g -O encoding=utf-8'
 alias latexmk='/usr/local/texlive/2015basic/bin/x86_64-darwin/latexmk'
+alias cot='open $1 -a "/Applications/CotEditor.app"'
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 eval
@@ -24,3 +31,5 @@ export PATH=/usr/local/bin:/usr/local/share/python:$PATH
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export DISPLAY=:0.0
+
+export PATH=$PATH:$HOME/.nodebrew/current/bin
