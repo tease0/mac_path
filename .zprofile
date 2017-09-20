@@ -55,10 +55,18 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 export LANG=ja_JP.UTF-8
 # 補完候補表示時などにピッピとビープ音をならないように設定
 setopt nolistbeep
+
 #history
 export HISTFILE=~/.zsh_history
+# ヒストリに追加されるコマンド行が古いものと同じなら古いものを削除
+setopt hist_ignore_all_dups
+# スペースで始まるコマンド行はヒストリリストから削除
+setopt hist_ignore_space
+# 古いコマンドと同じものは無視 
+setopt hist_save_no_dups
 # 他のターミナルとヒストリーを共有
 setopt share_history
+
 # 複数のzshを同時に使用した際に履歴ファイルを上書きせず追加する
 setopt append_history
 HISTSIZE=5000
