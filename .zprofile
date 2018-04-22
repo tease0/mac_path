@@ -65,7 +65,7 @@ setopt hist_ignore_space
 # 古いコマンドと同じものは無視 
 setopt hist_save_no_dups
 # 他のターミナルとヒストリーを共有
-setopt share_history
+#setopt share_history
 
 # 複数のzshを同時に使用した際に履歴ファイルを上書きせず追加する
 setopt append_history

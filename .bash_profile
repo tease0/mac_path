@@ -1,35 +1,24 @@
+export PATH=/usr/local:$PATH#vim用
+export PATH=$HOME/.nodebrew/current/bin:$PATH#nodejs
+export PATH="/Library/TeX/texbin:$PATH"#tex
+
+
 git_branch() {
   echo $(git branch --no-color 2>/dev/null | sed -ne "s/^\* \(.*\)$/\1/p")
 }
 PS1='\[\033[36m\]\u\[\033[0m\]\[\033[32m\]\w\[\033[0m\]:\[\033[35m\]$(git_branch)\[\033[0m\] $ '
 
-
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
-
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-
-#カラー
-export CLICOLOR=1
-alias c='pygmentize -O style=solarizedlight -f terminal256 -g -O encoding=utf-8'
-alias latexmk='/usr/local/texlive/2015basic/bin/x86_64-darwin/latexmk'
+alias ls='ls -G'
 alias cot='open $1 -a "/Applications/CotEditor.app"'
-
+alias sudo='sudo '
+export PATH="$HOME/.rbenv/bin:$PATH"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-eval
 
-#bash-completion
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-        . `brew --prefix`/etc/bash_completion
-    fi
+eval "$(goenv init -)"
 
-export PATH=/usr/local/bin:/usr/local/share/python:$PATH
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
-export DISPLAY=:0.0
-
-export PATH=$PATH:$HOME/.nodebrew/current/bin
+#historyの設定
+HISTSIZE=5000       # 現在使用中のbashが保持する履歴数
+HISTFILESIZE=5000   # 履歴ファイルに保存される履歴数
+HISTCONTROL=ignoreboth    # ignoredupsとignorespaceどちらも設定する
+HISTIGNORE=ls*:history*     # historyは記録しない。
+HISTTIMEFORMAT='%Y/%m/%d %H:%M:%S '
