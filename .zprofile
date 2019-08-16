@@ -40,10 +40,6 @@ alias cot='open $1 -a "/Applications/CotEditor.app"'
 alias sudo='sudo '
 export PATH="$HOME/.rbenv/bin:$PATH"
 
-
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-eval "$(goenv init -)"
-
 #lsの色付け
 alias ls='gls --color=auto -F'
 eval $(gdircolors ~/dircolors-solarized/dircolors.ansi-universal)
